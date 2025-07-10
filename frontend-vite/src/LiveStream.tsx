@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const BACKEND_URL = "http://localhost:6732";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:6732";
 
 const LiveStream: React.FC = () => {
   const [currentQuality, setCurrentQuality] = useState<number>(95);
@@ -101,7 +101,7 @@ const LiveStream: React.FC = () => {
   }, []);
 
   return (
-    <div className="live-stream">
+    <div className="max-h-full max-w-full">
       <div className="stats bg-gray-800 text-white p-4 rounded shadow-md">
         <span className="block mb-2">Quality: <span className="font-semibold">{currentQuality}%</span></span>
         <span className="block mb-2">FPS: <span className="font-semibold">{currentFps.toFixed(2)}</span></span>
@@ -110,7 +110,7 @@ const LiveStream: React.FC = () => {
       <img 
         ref={imgRef} 
         alt="Live Stream" 
-        style={{ maxWidth: "100%" }}
+        className="h-[75vh]"
       />
     </div>
   );

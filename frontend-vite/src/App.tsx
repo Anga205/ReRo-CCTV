@@ -2,7 +2,7 @@ import LiveStream from "./LiveStream";
 
 function App() {
   return (
-    <div className="w-screen h-screen bg-amber-950">
+    <div className="flex justify-center items-center w-screen min-h-screen bg-amber-950">
       <LiveStream />
     </div>
   );
